@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/images/palmeras-y-arrecife.jpg');
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-position: center;
+}
+
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  min-height: 100vh;
+  /* con min-height corrijo el desbordamiento de la imagen de fondo al probar el responsive. ¿qué otra solucion me podrias dar? */
+}
+
+
+form {
+  width: 375px;
+  padding: 20px;
+  border: 1px solid #4a15eb;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .3);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.rem;
+}
+
+
+label {
+  display: block;
+  margin-bottom: .6em;
+  margin-top: .5em;
+  font-size: 1.2rem;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #4a15eb;
+  border-radius: 5px;
+  margin-bottom: 1px;
+}
+
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.checkbox input[type="checkbox"] {
+  transform: scale(1.6);
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+
+small {
+  color: red;
+  font-size: 1rem;
+}
+
+
+button {
+  background-color: #5be35f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+
+}
+
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+
+button[type="submit"]:hover {
+  background-color: #79c726;
+}
+
+
+/* Estilos para campos de entrada incorrectos */
+.form-field.error input[type="text"],
+.form-field.error input[type="password"],
+.form-field.error input[type="date"] {
+  border: 1.5px solid rgb(242, 11, 11);
+}
+
+/* Estilos para campos de entrada correctos */
+.form-field.success input[type="text"],
+.form-field.success input[type="password"],
+.form-field.success input[type="date"] {
+  border: 1.5px solid rgb(14, 205, 14);
+}
