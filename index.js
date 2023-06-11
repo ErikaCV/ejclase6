@@ -28,21 +28,20 @@ window.addEventListener("load", () => {
     const setErrorFor = (input, message) => {
       const inputParent = input.parentElement;
       const small = inputParent.querySelector("small");
-    
+
       small.innerText = message;
       inputParent.classList.add("form-field", "error");
       inputParent.classList.remove("form-field", "success");
     };
-    
+
     const setSuccessFor = (input) => {
       const inputParent = input.parentElement;
       const small = inputParent.querySelector("small");
-    
+
       small.innerText = "";
       inputParent.classList.remove("error");
       inputParent.classList.add("success");
     };
-    
 
     !regFirstname.test(firstnameValue)
       ? setErrorFor(firstname, "Username is not valid")
