@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
   const regFirstname = /^[A-Za-záéíóúñÁÉÍÓÚÑ]{3,16}$/;
   const regLastname = /^[A-Za-záéíóúñÁÉÍÓÚÑ]{3,16}$/;
   const regUsername = /^[\wáéíóúñÁÉÍÓÚÑa-zA-Z0-9]{3,16}$/;
-  const regPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -51,12 +50,21 @@ window.addEventListener("load", () => {
       ? setErrorFor(username, "Username is not valid")
       : setSuccessFor(username);
 
-    !regPassword.test(passwordValue)
-      ? setErrorFor(password, "The password is invalid")
-      : setSuccessFor(password);
-    confirmpasswordValue !== passwordValue
-      ? setErrorFor(confirmpassword, "Passwords do not match")
-      : setSuccessFor(confirmpassword);
+    if (passwordValue === "") {
+      setErrorFor(password, "Password cannot be blank");
+    } else if (passwordValue.length < 8) {
+      setErrorFor(password, "Password must be at least 8 characters.");
+    } else {
+      setSuccessFor(password);
+    }
+
+    if (confirmpasswordValue === "") {
+      setErrorFor(confirmpassword, "Please confirm your password");
+    } else if (passwordValue !== confirmpasswordValue) {
+      setErrorFor(confirmpassword, "Passwords doesn't match");
+    } else {
+      setSuccessFor(confirmpassword);
+    }
 
     if (birthdayValue === "") {
       setErrorFor(birthday, "Please enter your birthday");
