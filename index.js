@@ -26,17 +26,23 @@ window.addEventListener("load", () => {
     const birthdayValue = birthday.value.trim();
 
     const setErrorFor = (input, message) => {
-      const inputParent = input.parentElement; // buscamos el padre del input ingresado
-      const small = inputParent.querySelector("small"); // buscamos el elemento small dentro del padre del input ingresado
-
-      small.innerText = message; // cambiamos el texto del small
-      inputParent.className = "form-field error"; // creamos dos clases en el div padre de cada id y cambiamos el css del padre del input ingresado
+      const inputParent = input.parentElement;
+      const small = inputParent.querySelector("small");
+    
+      small.innerText = message;
+      inputParent.classList.add("form-field", "error");
+      inputParent.classList.remove("form-field", "success");
     };
-
+    
     const setSuccessFor = (input) => {
-      const inputParent = input.parentElement; // buscamos el padre del input ingresado
-      inputParent.className = "form-field success"; // creamos dos clases en el div padre de cada id y cambiamos el css del padre del input ingresado
+      const inputParent = input.parentElement;
+      const small = inputParent.querySelector("small");
+    
+      small.innerText = "";
+      inputParent.classList.remove("error");
+      inputParent.classList.add("success");
     };
+    
 
     !regFirstname.test(firstnameValue)
       ? setErrorFor(firstname, "Username is not valid")
